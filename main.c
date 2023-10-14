@@ -5,8 +5,9 @@ int main(void)
 	char *line = NULL;
 	char **command = NULL;
 	int status = 0;
+	int exit_shell = 0;
 
-	while (1)
+	while (!exit_shell)
 	{
 		if (isatty(STDIN_FILENO))
 		{
@@ -21,7 +22,7 @@ int main(void)
 			{
 				write(STDOUT_FILENO, "\n", 1);
 			}
-			return status;
+			return (status);
 		}
 
 		command = tokenize_input(line);
@@ -31,11 +32,23 @@ int main(void)
 			continue;
 		}
 
-		status = execute_command(command);
+		if (strcmp(command[0], "exit") == 0)
+		{
+			exit_shell = 1;
+		}
+
+		else if (strcmp(command[0], "env") == 0)
+		{
+			print_environment();
+		}
+		else
+		{
+			status = execute_command_with_path(command);
+		}
 
 		free(line);
 		free(command);
 	}
 
-    return 0;
+    return (0);
 }

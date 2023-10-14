@@ -1,24 +1,30 @@
 #include "shell.h"
 
-int execute_command(char **command) {
-    pid_t child_pid;
-    int status;
+int execute_command(char *command_path, char **command)
+{
+	pid_t child_pid;
+	int status;
 
-    child_pid = fork();
+	child_pid = fork();
 
-    if (child_pid == -1) {
-        perror("Fork failed");
-        return 1;
-    }
+	if (child_pid == -1)
+	{
+		perror("Fork failed");
+		return (1);
+	}
 
-    if (child_pid == 0) {
-        if (execvp(command[0], command) == -1) {
-            perror("Execution error");
-            exit(EXIT_FAILURE);
-        }
-    } else {
-        waitpid(child_pid, &status, 0);
-    }
+	if (child_pid == 0)
+	{
+		execve(command_path, command, NULL);
 
-    return WEXITSTATUS(status);
+		perror("Execution error");
+		_exit(EXIT_FAILURE);
+	}
+
+	else
+	{
+        	waitpid(child_pid, &status, 0);
+	}
+
+    return (WEXITSTATUS(status));
 }

@@ -10,8 +10,10 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 
-int execute_command(char **command);
+int execute_command(char *command_path, char **command);
 char *read_user_input();
 char **tokenize_input(const char *line);
+void print_environment();
+int execute_command_with_path(char **command);
 
 #endif
