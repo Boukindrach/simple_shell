@@ -15,5 +15,7 @@ char *read_user_input();
 char **tokenize_input(const char *line);
 void print_environment();
 int execute_command_with_path(char **command);
-
+int _strlen(char *s);
+char *_strdup(const char *str);
+int _strcmp(char *s1, char *s2);
 #endif

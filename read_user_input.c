@@ -13,5 +13,5 @@ char *read_user_input()
 		return NULL;
 	}
 
-	return line;
+	return (line);
 }

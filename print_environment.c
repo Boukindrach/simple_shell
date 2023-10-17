@@ -7,7 +7,7 @@ void print_environment()
 	char **env;
 	for (env = environ; *env != NULL; env++)
 	{
-		write(STDOUT_FILENO, *env, strlen(*env));
+		write(STDOUT_FILENO, *env, _strlen(*env));
 		write(STDOUT_FILENO, "\n", 1);
 	}
 }

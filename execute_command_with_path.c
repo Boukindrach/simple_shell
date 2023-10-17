@@ -1,6 +1,4 @@
 #include "shell.h"
-#include <string.h>
-#include <stdlib.h>
 
 int execute_command(char *command_path, char **command);
 
@@ -19,13 +17,13 @@ int execute_command_with_path(char **command) {
 		return (status);
 	}
 
-	path_copy = strdup(path);
+	path_copy = _strdup(path);
 	dir = strtok(path_copy, ":");
 
 	while (dir != NULL)
 	{
-		int dir_len = strlen(dir);
-		int cmd_len = strlen(command[0]);
+		int dir_len = _strlen(dir);
+		int cmd_len = _strlen(command[0]);
 		full_path_len = dir_len + cmd_len + 2;
 
 		command_path = (char *)malloc(full_path_len);

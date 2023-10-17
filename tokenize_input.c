@@ -15,10 +15,10 @@ char **tokenize_input(const char *line)
 		return (NULL);
 	}
 
-	token = strtok(strdup(line), " \t\r\n");
+	token = strtok(_strdup(line), " \t\r\n");
 	while (token != NULL)
 	{
-		tokens[count] = strdup(token);
+		tokens[count] = _strdup(token);
 		count++;
 
 		if (count >= bufsize)
