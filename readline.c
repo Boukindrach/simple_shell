@@ -1,8 +1,8 @@
 #include "shell.h"
 
 /**
- * read_line- Read a line of input from the user and allocate memory for it.
- *
+ * read_user_input- Read a line of input
+ * from the user and allocate memory for it.
  * Return: A dynamically allocated string containing the user's input line.
  *         Returns NULL if memory allocation or input read fails.
 */
