@@ -11,14 +11,14 @@ char *read_user_input(void)
 {
 	char *line = NULL;
 	size_t len = 0;
-	ssize_t n;
+	ssize_t x;
 
 	if (isatty(STDIN_FILENO))
 		write(STDOUT_FILENO, "$ ", 2);
 
-	n = getline(&line, &len, stdin);
+	x = getline(&line, &len, stdin);
 
-	if (n == -1)
+	if (x == -1)
 	{
 		free(line);
 		return (NULL);

@@ -12,12 +12,14 @@ int is_builtin(char *command)
 	char *built_in[] = {
 		"exit", "env", "setenv", "cd", NULL
 	};
-	int i;
+	int j;
 
-	for (i = 0; built_in[i]; i++)
+	for (j = 0; built_in[j]; j++)
 	{
-		if (_strcmp(command, built_in[i]) == 0)
+		if (_strcmp(command, built_in[j]) == 0)
+		{
 			return (1);
+		}
 	}
 	return (0);
 }
@@ -33,11 +35,14 @@ int is_builtin(char *command)
 void handle_builtin(char **command, char **argv, int *status, int idx)
 {
 	if (_strcmp(command[0], "exit") == 0)
+	{
 		exit_shell(command, status, argv, idx);
+	}
 
 	else if (_strcmp(command[0], "env") == 0)
+	{
 		print_env(command, status);
-
+	}
 }
 
 /**
@@ -73,8 +78,6 @@ void exit_shell(char **command, int *status, char **argv, int idx)
 			return;
 		}
 	}
-
-
 	freearray2D(command);
 	exit(exit_value);
 }
@@ -96,6 +99,7 @@ void print_env(char **command, int *status)
 		write(STDOUT_FILENO, environ[i], _strlen(environ[i]));
 		write(STDOUT_FILENO, "\n", 1);
 	}
+
 
 	freearray2D(command);
 	*status = 0;
