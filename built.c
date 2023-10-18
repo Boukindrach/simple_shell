@@ -1,5 +1,12 @@
 #include "shell.h"
 
+/**
+ * is_builtin- checks command if is built-in
+ * command in a shell program
+ * @command: string
+ * Return: 0 or 1
+*/
+
 int is_builtin(char *command)
 {
 	char *builtins[] = {
@@ -15,6 +22,14 @@ int is_builtin(char *command)
 	return (0);
 }
 
+/**
+ * handle_builtin- execute built-in commands within a shell program
+ * @command: string
+ * @argv: string
+ * @status: integer
+ * @idx: integer
+*/
+
 void handle_builtin(char **command, char **argv, int *status, int idx)
 {
 	if (_strcmp(command[0], "exit") == 0)
@@ -24,6 +39,14 @@ void handle_builtin(char **command, char **argv, int *status, int idx)
 		print_env(command, status);
 
 }
+
+/**
+ * exit_shell- exit a shell program
+ * @command: string
+ * @argv: string
+ * @status: integer
+ * @idx: integer
+*/
 
 void exit_shell(char **command, int *status, char **argv, int idx)
 {
@@ -55,6 +78,13 @@ void exit_shell(char **command, int *status, char **argv, int idx)
 	freearray2D(command);
 	exit(exit_value);
 }
+
+/**
+ * print_env- print the environment variables
+ * to the standard output
+ * @command: string
+ * @status: integer
+*/
 
 void print_env(char **command, int *status)
 {
