@@ -1,9 +1,10 @@
 #include "shell.h"
 
 /**
- * _strdup - 
- * @s: 
- * Return: 
+ * _strdup- duplicates a given string
+ * and returns a dynamically allocated copy of the string.
+ * @s: string
+ * Return: new or Null
  */
 char *_strdup(const char *s)
 {
@@ -19,9 +20,9 @@ char *_strdup(const char *s)
 }
 
 /**
- * _strlen - 
- * @s: 
- * Return: 
+ * _strlen- calculates the length of a string
+ * @s: string
+ * Return: len
  */
 int _strlen(const char *s)
 {
@@ -33,10 +34,11 @@ int _strlen(const char *s)
 	return (len);
 }
 /**
- * _strcat -
- * @dest:
- * @src:
- * Return:
+ * _strcat- appends the content of the source string
+ * to the destination string
+ * @dest: copied string
+ * @src: original string
+ * Return: dest
  */
 char *_strcat(char *dest, const char *src)
 {
@@ -57,10 +59,10 @@ char *_strcat(char *dest, const char *src)
 }
 
 /**
- * *_strcpy -
- * @dest:
- * @src:
- * Return:
+ * *_strcpy- copies the source string into the destination string
+ * @dest: copied string
+ * @src: original string
+ * Return: dest
  */
 char *_strcpy(char *dest, char *src)
 {
@@ -76,10 +78,10 @@ char *_strcpy(char *dest, char *src)
 }
 
 /**
- * _strcmp -
- * @s1:
- * @s2:
- * Return:
+ * _strcmp- compares two strings
+ * @s1: string 1
+ * @s2: string 2
+ * Return: 0, 1 or -1
  */
 int _strcmp(char *s1, char *s2)
 {

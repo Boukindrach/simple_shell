@@ -1,5 +1,11 @@
 #include "shell.h"
 
+/**
+ * _getpath- locating the full path of an executable command
+ * @command: A pointer to a string
+ * Return: Null or full_cmd
+*/
+
 char *_getpath(char *command)
 {
 	char *path_env, *full_cmd, *dir;
@@ -19,7 +25,6 @@ char *_getpath(char *command)
 	path_env = _getenv("PATH");
 	if (!path_env)
 		return (NULL);
-
 	dir = strtok(path_env, ":");
 	while (dir)
 	{
@@ -37,7 +42,6 @@ char *_getpath(char *command)
 			}
 
 			free(full_cmd), full_cmd = NULL;
-
 			dir = strtok(NULL, ":");
 		}
 
