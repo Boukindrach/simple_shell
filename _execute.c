@@ -3,8 +3,9 @@
 /**
  * _execute- Execute a command by forking a child process and invoking execve.
  *
- * @command: An array of strings representing the command and its arguments.
- * @argv: An array of strings representing the command-line arguments.
+ * @command: An array of strings
+ * @argv: An array of strings
+ * @idx: integer
  * Return: The exit status of the executed command.
  */
 
@@ -19,7 +20,7 @@ int _execute(char **command, char **argv, int idx)
 	{
 		printerror(argv[0], command[0], idx);
 		freearray2D(command);
-		exit(EXIT_FAILURE);;
+		exit(EXIT_FAILURE);
 	}
 
 	child = fork();
