@@ -1,8 +1,14 @@
 #include "shell.h"
 
+/**
+ * freearray2D- deallocate memory associated
+ * @arr: 2D array
+*/
+
 void freearray2D(char **arr)
 {
 	int i;
+
 	if (!arr)
 		return;
 
@@ -14,6 +20,13 @@ void freearray2D(char **arr)
 
 	free(arr), arr = NULL;
 }
+
+/**
+ * printerror- display an error message
+ * @idx: integer
+ * @name: string
+ * @cmd: string
+*/
 
 void printerror(char *name, char *cmd, int idx)
 {
@@ -30,6 +43,12 @@ void printerror(char *name, char *cmd, int idx)
 
 	free(index);
 }
+
+/**
+ * _itoa- convert an integer value into a string
+ * @n: integer
+ * Return: returns the value of _strdup(buffer)
+*/
 
 char *_itoa(int n)
 {
@@ -52,6 +71,12 @@ char *_itoa(int n)
 	return (_strdup(buffer));
 }
 
+/**
+ * reverse_string- reverses string
+ * @len: integer
+ * @str: string
+*/
+
 void reverse_string(char *str, int len)
 {
 	char tmp;
@@ -66,35 +91,4 @@ void reverse_string(char *str, int len)
 		start++;
 		end--;
 	}
-}
-
-/**
- * _atoi -
- * @s:
- * Return: .
- */
-int _atoi(char *str)
-{
-	int i = 0, num = 0;
-
-	for (i = 0; str[i]; i++)
-	{
-		num *= 10;
-		num += (str[i] - '0');
-	}
-	return (num);
-}
-
-int is_positive_number(char *str)
-{
-	int i;
-
-	if (!str)
-		return (0);
-	for (i = 0; str[i]; i++)
-	{
-		if (str[i] < '0' || str[i] > '9')
-			return (0);
-	}
-	return (1);
 }
