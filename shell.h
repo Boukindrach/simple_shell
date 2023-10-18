@@ -14,11 +14,15 @@
 
 extern char **environ;
 void freearray2D(char **arr);
+void printerror(char *name, char *cmd, int idx);
+char *_itoa(int n);
+void reverse_string(char *str, int len);
 
-int _execute(char **command, char **argv);
+int _execute(char **command, char **argv, int idx);
 char **tokenizer(char *line);
 char *read_line(void);
 char *_getpath(char *command);
+char *_getenv(char *v);
 
 int _strlen(const char *s);
 char *_strdup(const char *str);
