@@ -19,7 +19,7 @@ int _execute(char **command, char **argv, int idx)
 	{
 		printerror(argv[0], command[0], idx);
 		freearray2D(command);
-		return (127);
+		exit(EXIT_FAILURE);;
 	}
 
 	child = fork();
@@ -27,6 +27,7 @@ int _execute(char **command, char **argv, int idx)
 	{
 		perror(argv[0]);
 		freearray2D(command);
+		free(full_cmd);
 		return (-1);
 	}
 
@@ -36,13 +37,15 @@ int _execute(char **command, char **argv, int idx)
 		{
 			perror(argv[0]);
 			freearray2D(command);
-			exit(0);
+			free(full_cmd);
+			exit(EXIT_FAILURE);
 		}
 	}
 	else
 	{
 		waitpid(child, &status, 0);
 		freearray2D(command);
+		free(full_cmd);
 	}
 	return (WEXITSTATUS(status));
 }

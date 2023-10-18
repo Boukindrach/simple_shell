@@ -16,7 +16,7 @@ char *_getenv(char *v)
 			free(tmp);
 			return (env);
 		}
-		free(tmp), tmp = NULL;
+		free(tmp);
 	}
 	return (NULL);
 
