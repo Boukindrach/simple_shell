@@ -33,7 +33,7 @@ int _execute(char **command, char **argv, int idx)
 
 	if (child == 0)
 	{
-		if (execve(command[0], command, environ) == -1)
+		if (execve(full_cmd, command, environ) == -1)
 		{
 			perror(argv[0]);
 			freearray2D(command);
