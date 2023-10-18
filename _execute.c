@@ -1,5 +1,13 @@
 #include "shell.h"
 
+/**
+ * _execute- Execute a command by forking a child process and invoking execve.
+ *
+ * @command: An array of strings representing the command and its arguments.
+ * @argv: An array of strings representing the command-line arguments.
+ * Return: The exit status of the executed command.
+ */
+
 int _execute(char **command, char **argv)
 {
 	pid_t child;
@@ -20,5 +28,5 @@ int _execute(char **command, char **argv)
 		waitpid(child, &status, 0);
 		freearray2D(command);
 	}
-	return(WEXITSTATUS(status));
+	return (WEXITSTATUS(status));
 }

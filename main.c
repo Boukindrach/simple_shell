@@ -1,5 +1,12 @@
 #include "shell.h"
 
+/**
+ * main-  entry point of the simple shell program.
+ * @argc: the number of command-line arguments
+ * @argv: pointer to an array of strings
+ * Return: return status
+*/
+
 int main(int argc, char **argv)
 {
 	char *line = NULL, **command = NULL;

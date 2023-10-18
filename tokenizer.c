@@ -1,5 +1,12 @@
 #include "shell.h"
 
+/**
+ * Tokenize- a string into an array of strings using a specified delimiter.
+ * @line: The input string to be tokenized.
+ * Return: An array of strings obtained by splitting the input string.
+ *         Returns NULL if memory allocation or tokenization fails.
+*/
+
 char **tokenizer(char *line)
 {
 	char *token = NULL, *tmp = NULL;
@@ -59,6 +66,6 @@ char **tokenizer(char *line)
 	free(tmp);
 	free(line);
 	command[i] = NULL;
-	return command;
+	return (command);
 }
 
