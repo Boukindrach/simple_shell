@@ -17,24 +17,23 @@ char **tokenizer(char *line)
 	tmp = _strdup(line);
 	if (!tmp)
 	{
-		free(line), return (NULL);
-	}
-	token = strtok(tmp, DELIM);
+		free(line);
+		return (NULL);
+	}	token = strtok(tmp, DELIM);
 	while (token)
 	{
 		cpt++, token = strtok(NULL, DELIM);
-	}
-	free(tmp), command = malloc(sizeof(char *) * (cpt + 1));
+	}	free(tmp), command = malloc(sizeof(char *) * (cpt + 1));
 	if (!command)
 	{
-		free(line), return (NULL);
+		free(line);
+		return (NULL);
 	}
 	tmp = _strdup(line);
 	if (!tmp)
-	{
-		free(line), free(command), return (NULL);
-	}
-	token = strtok(tmp, DELIM);
+	{free(line), free(command);
+		return (NULL);
+	}	token = strtok(tmp, DELIM);
 	while (token)
 	{
 		command[i] = _strdup(token);
@@ -44,9 +43,10 @@ char **tokenizer(char *line)
 			{
 				free(command[j]);
 			}
-			free(command), free(line), return (NULL);
+			free(command), free(line);
+			return (NULL);
 		}
 		token = strtok(NULL, DELIM), i++;
-	}
-	free(tmp), free(line), command[i] = NULL, return (command);
+	}	free(tmp), free(line), command[i] = NULL;
+	return (command);
 }
