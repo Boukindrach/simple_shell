@@ -15,7 +15,7 @@ int main(int argc, char **argv)
 
 	while (1)
 	{
-		line = read_line();
+		line = read_user_input();
 		if (line == NULL)
 		{
 			if (isatty(STDIN_FILENO))
@@ -32,7 +32,7 @@ int main(int argc, char **argv)
 			handle_builtin(command, argv, &status, idx);
 
 		else
-			status = _execute(command, argv, idx);
+			status = execute_command(command, argv, idx);
 	}
 
 }

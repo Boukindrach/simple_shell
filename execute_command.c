@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * _execute- Execute a command by forking a child process and invoking execve.
+ * execute_command- Execute a command by forking a child process and invoking execve.
  *
  * @command: An array of strings
  * @argv: An array of strings
@@ -9,7 +9,7 @@
  * Return: The exit status of the executed command.
  */
 
-int _execute(char **command, char **argv, int idx)
+int execute_command(char **command, char **argv, int idx)
 {
 	char *full_cmd;
 	pid_t child;

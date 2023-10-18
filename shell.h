@@ -25,9 +25,9 @@ int is_builtin(char *command);
 void exit_shell(char **command, int *status, char **argv, int idx);
 void print_env(char **command, int *status);
 
-int _execute(char **command, char **argv, int idx);
+int execute_command(char **command, char **argv, int idx);
 char **tokenizer(char *line);
-char *read_line(void);
+char *read_user_input(void);
 char *_getpath(char *command);
 char *_getenv(char *v);
 

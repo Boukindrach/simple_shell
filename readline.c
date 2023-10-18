@@ -7,7 +7,7 @@
  *         Returns NULL if memory allocation or input read fails.
 */
 
-char *read_line(void)
+char *read_user_input(void)
 {
 	char *line = NULL;
 	size_t len = 0;

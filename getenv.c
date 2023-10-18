@@ -8,14 +8,14 @@
 
 char *_getenv(char *v)
 {
-	char *tmp, *key, *value, *env;
+	char *tmp, *k, *value, *env;
 	int i;
 
 	for (i = 0; environ[i]; i++)
 	{
 		tmp = _strdup(environ[i]);
-		key = strtok(tmp, "=");
-		if (_strcmp(key, v) == 0)
+		k = strtok(tmp, "=");
+		if (_strcmp(k, v) == 0)
 		{
 			value = strtok(NULL, "\n");
 			env = _strdup(value);

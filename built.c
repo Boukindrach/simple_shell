@@ -9,14 +9,14 @@
 
 int is_builtin(char *command)
 {
-	char *builtins[] = {
+	char *built_in[] = {
 		"exit", "env", "setenv", "cd", NULL
 	};
 	int i;
 
-	for (i = 0; builtins[i]; i++)
+	for (i = 0; built_in[i]; i++)
 	{
-		if (_strcmp(command, builtins[i]) == 0)
+		if (_strcmp(command, built_in[i]) == 0)
 			return (1);
 	}
 	return (0);
